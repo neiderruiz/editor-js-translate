@@ -1,0 +1,38 @@
+{
+  "name": "@neiderruiz/editor-js-translate",
+  "version": "1.0.1",
+  "description": "helps to translate the content of Editor.js blocks from one language to another easily",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "prebuild": "rm -rf dist"
+  },
+  "keywords": [
+    "editorjs",
+    "editorjs translate",
+    "translate blocks"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/neiderruiz/editor-js-translate.git"
+  },
+  "bugs": {
+    "url": "http://github.com/neiderruiz/editor-js-translate/issues"
+  },
+  "author": {
+    "name": "Neider Ruiz",
+    "email": "neidebtc@gmail.com",
+    "url": "http://github.com/neiderruiz/"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.17.1",
+    "esbuild": "^0.15.7",
+    "node-fetch": "^3.2.10",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "@neiderruiz/translate-js": "^1.0.1"
+  }
+}
