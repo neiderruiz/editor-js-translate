@@ -1,5 +1,3 @@
-
-
 import { translate } from '@neiderruiz/translate-js';
 import { Blocks, EditorBlock, EditorBlocks, TypeChecklist, TypeHeader, TypeImage, TypeList, TypeParagraph, TypeQuote, TypeTable, TypeWarning } from './types';
 
@@ -8,72 +6,37 @@ const translateBlocks = async (blocks: EditorBlocks, outputLanguage = 'en', inpu
 
     const transformations = {
         'paragraph': async (item: TypeParagraph) => {
-            item.data.text = await translate({
-                text: item.data.text,
-                locale: inputLanguage,
-                dest: outputLanguage
-            });
+            item.data.text = await translate(item.data.text, inputLanguage, outputLanguage);
             return item;
         },
         'header': async (item: TypeHeader) => {
-            item.data.text = await translate({
-                text: item.data.text,
-                locale: inputLanguage,
-                dest: outputLanguage
-            });
+            item.data.text = await translate(item.data.text,inputLanguage,outputLanguage);
             return item;
         },
         'list': async (item: TypeList) => {
             item.data.items = await Promise.all(item.data.items.map(async text =>
-                await translate({
-                    text,
-                    locale: inputLanguage,
-                    dest: outputLanguage
-                })
+                await translate(text, inputLanguage,outputLanguage)
             ));
             return item;
         },
         'image': async (item: TypeImage) => {
-            item.data.caption = await translate({
-                text: item.data.caption,
-                locale: inputLanguage,
-                dest: outputLanguage
-            });
+            item.data.caption = await translate(item.data.caption,inputLanguage,outputLanguage
+        );
             return item;
         },
         'warning': async (item: TypeWarning) => {
-            item.data.title = await translate({
-                text: item.data.title,
-                locale: inputLanguage,
-                dest: outputLanguage
-            });
-            item.data.message = await translate({
-                text: item.data.message,
-                locale: inputLanguage,
-                dest: outputLanguage
-            });
+            item.data.title = await translate(item.data.title,inputLanguage,outputLanguage);
+            item.data.message = await translate(item.data.message,inputLanguage,outputLanguage);
             return item;
         },
         'quote': async (item: TypeQuote) => {
-            item.data.text = await translate({
-                text: item.data.text,
-                locale: inputLanguage,
-                dest: outputLanguage
-            });
-            item.data.caption = await translate({
-                text: item.data.caption,
-                locale: inputLanguage,
-                dest: outputLanguage
-            });
+            item.data.text = await translate(item.data.text,inputLanguage,outputLanguage);
+            item.data.caption = await translate(item.data.caption, inputLanguage, outputLanguage);
             return item;
         },
         'checklist': async (item: TypeChecklist) => {
             item.data.items = await Promise.all(item.data.items.map(async (itemCheck) => {
-                itemCheck.text = await translate({
-                    text: itemCheck.text,
-                    locale: inputLanguage,
-                    dest: outputLanguage
-                });
+                itemCheck.text = await translate(itemCheck.text,inputLanguage,outputLanguage);
                 return itemCheck;
             }));
             return item;
@@ -81,11 +44,7 @@ const translateBlocks = async (blocks: EditorBlocks, outputLanguage = 'en', inpu
         'table': async (item: TypeTable) => {
             item.data.content = await Promise.all(item.data.content.map(async itemTable =>
                 await Promise.all(itemTable.map(async text =>
-                    await translate({
-                        text,
-                        locale: inputLanguage,
-                        dest: outputLanguage
-                    }))
+                    await translate(text,inputLanguage,outputLanguage))
                 )
             ));
             return item;
