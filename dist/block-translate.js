@@ -5,80 +5,40 @@ const translateBlocks = async (blocks, outputLanguage = 'en', inputLanguage = 'e
     const newBlocks = {};
     const transformations = {
         'paragraph': async (item) => {
-            item.data.text = await (0, translate_js_1.translate)({
-                text: item.data.text,
-                locale: inputLanguage,
-                dest: outputLanguage
-            });
+            item.data.text = await (0, translate_js_1.translate)(item.data.text, inputLanguage, outputLanguage);
             return item;
         },
         'header': async (item) => {
-            item.data.text = await (0, translate_js_1.translate)({
-                text: item.data.text,
-                locale: inputLanguage,
-                dest: outputLanguage
-            });
+            item.data.text = await (0, translate_js_1.translate)(item.data.text, inputLanguage, outputLanguage);
             return item;
         },
         'list': async (item) => {
-            item.data.items = await Promise.all(item.data.items.map(async (text) => await (0, translate_js_1.translate)({
-                text,
-                locale: inputLanguage,
-                dest: outputLanguage
-            })));
+            item.data.items = await Promise.all(item.data.items.map(async (text) => await (0, translate_js_1.translate)(text, inputLanguage, outputLanguage)));
             return item;
         },
         'image': async (item) => {
-            item.data.caption = await (0, translate_js_1.translate)({
-                text: item.data.caption,
-                locale: inputLanguage,
-                dest: outputLanguage
-            });
+            item.data.caption = await (0, translate_js_1.translate)(item.data.caption, inputLanguage, outputLanguage);
             return item;
         },
         'warning': async (item) => {
-            item.data.title = await (0, translate_js_1.translate)({
-                text: item.data.title,
-                locale: inputLanguage,
-                dest: outputLanguage
-            });
-            item.data.message = await (0, translate_js_1.translate)({
-                text: item.data.message,
-                locale: inputLanguage,
-                dest: outputLanguage
-            });
+            item.data.title = await (0, translate_js_1.translate)(item.data.title, inputLanguage, outputLanguage);
+            item.data.message = await (0, translate_js_1.translate)(item.data.message, inputLanguage, outputLanguage);
             return item;
         },
         'quote': async (item) => {
-            item.data.text = await (0, translate_js_1.translate)({
-                text: item.data.text,
-                locale: inputLanguage,
-                dest: outputLanguage
-            });
-            item.data.caption = await (0, translate_js_1.translate)({
-                text: item.data.caption,
-                locale: inputLanguage,
-                dest: outputLanguage
-            });
+            item.data.text = await (0, translate_js_1.translate)(item.data.text, inputLanguage, outputLanguage);
+            item.data.caption = await (0, translate_js_1.translate)(item.data.caption, inputLanguage, outputLanguage);
             return item;
         },
         'checklist': async (item) => {
             item.data.items = await Promise.all(item.data.items.map(async (itemCheck) => {
-                itemCheck.text = await (0, translate_js_1.translate)({
-                    text: itemCheck.text,
-                    locale: inputLanguage,
-                    dest: outputLanguage
-                });
+                itemCheck.text = await (0, translate_js_1.translate)(itemCheck.text, inputLanguage, outputLanguage);
                 return itemCheck;
             }));
             return item;
         },
         'table': async (item) => {
-            item.data.content = await Promise.all(item.data.content.map(async (itemTable) => await Promise.all(itemTable.map(async (text) => await (0, translate_js_1.translate)({
-                text,
-                locale: inputLanguage,
-                dest: outputLanguage
-            })))));
+            item.data.content = await Promise.all(item.data.content.map(async (itemTable) => await Promise.all(itemTable.map(async (text) => await (0, translate_js_1.translate)(text, inputLanguage, outputLanguage)))));
             return item;
         },
         'default': (item) => {
