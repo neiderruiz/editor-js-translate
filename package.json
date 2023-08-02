@@ -1,8 +1,9 @@
 {
   "name": "@neiderruiz/editor-js-translate",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "helps to translate the content of Editor.js blocks from one language to another easily",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
@@ -28,11 +29,9 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^18.17.1",
-    "esbuild": "^0.15.7",
-    "node-fetch": "^3.2.10",
     "typescript": "^5.1.6"
   },
   "dependencies": {
-    "@neiderruiz/translate-js": "^1.0.1"
+    "@neiderruiz/translate-js": "1.0.2"
   }
 }
