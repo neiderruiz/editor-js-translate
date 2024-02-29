@@ -32,6 +32,6 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
-    "@neiderruiz/translate-js": "^1.0.3"
+    "@neiderruiz/translate-js": "^1.0.4"
   }
 }
