@@ -1,6 +1,6 @@
 {
   "name": "@neiderruiz/editor-js-translate",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "helps to translate the content of Editor.js blocks from one language to another easily",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
