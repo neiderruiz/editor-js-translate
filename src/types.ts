@@ -1,4 +1,4 @@
-type BlockType = 'paragraph' | 'header' | 'list' | 'image' | 'warning' | 'quote' | 'checklist' | 'table'
+type BlockType = 'paragraph' | 'header' | 'list' | 'image' | 'warning' | 'quote' | 'checklist' | 'table' | 'linkTool';
 
 type BlockData<T> = {
     type: BlockType;
@@ -39,6 +39,17 @@ type TableData = {
     content: string[][];
 };
 
+type LinkToolData = {
+    link: string;
+    meta: {
+        title: string;
+        description: string;
+        image: {
+            url: string;
+        };
+    };
+};
+
 export type TypeParagraph = BlockData<TextData>;
 export type TypeHeader = BlockData<TextData>;
 export type TypeList = BlockData<ListData>;
@@ -47,6 +58,7 @@ export type TypeWarning = BlockData<WarningData>;
 export type TypeQuote = BlockData<QuoteData>;
 export type TypeChecklist = BlockData<ChecklistData>;
 export type TypeTable = BlockData<TableData>;
+export type TypeLinkTool = BlockData<LinkToolData>;
 
 type Block<T> = {
     id?: string;
@@ -61,7 +73,8 @@ export type EditorBlock =
     | Block<WarningData> 
     | Block<QuoteData> 
     | Block<ChecklistData> 
-    | Block<TableData>;
+    | Block<TableData>
+    | Block<LinkToolData>;
 
 export type EditorBlocks = {
     blocks: EditorBlock[];
