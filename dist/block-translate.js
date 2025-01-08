@@ -41,6 +41,10 @@ const translateBlocks = async (blocks, outputLanguage = 'en', inputLanguage = 'e
             item.data.content = await Promise.all(item.data.content.map(async (itemTable) => await Promise.all(itemTable.map(async (text) => await (0, translate_js_1.translate)(text, inputLanguage, outputLanguage)))));
             return item;
         },
+        'linkTool': async (item) => {
+            item.data.meta.description = await (0, translate_js_1.translate)(item.data.meta.description, inputLanguage, outputLanguage);
+            return item;
+        },
         'default': (item) => {
             return item;
         }
