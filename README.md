@@ -46,6 +46,20 @@ const blocks = {
             "text": "suponiendo que es un titulo h2",
             "level": 2
           }
+        },
+        {
+          "id": "Ksdhgsjf",
+          "type": "linkTool",
+          "data": {
+            "link": "https://neiderruiz.com/",
+            "meta": {
+              "title": "Blog Neider Ruiz",
+              "description": "Blog de desarrollo de software",
+              "image": {
+                "url": "https://neiderruiz.s3.amazonaws.com/avatar/neiderruiz_.png"
+              }
+            }
+          }
         }
       ],
       "version": "2.27.2"
@@ -90,6 +104,20 @@ const blocks = {
             "data": {
                 "text": "assuming it's an h2 title",
                 "level": 2
+            }
+        },
+        {
+            "id": "Ksdhgsjf",
+            "type": "linkTool",
+            "data": {
+                "link": "https://neiderruiz.com/",
+                "meta": {
+                    "title": "Blog Neider Ruiz",
+                    "description": "Blog de desarrollo de software",
+                    "image": {
+                        "url": "https://neiderruiz.s3.amazonaws.com/avatar/neiderruiz_.png"
+                    }
+                }
             }
         }
     ],

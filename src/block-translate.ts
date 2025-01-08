@@ -1,5 +1,5 @@
 import { translate } from '@neiderruiz/translate-js';
-import { Blocks, EditorBlock, EditorBlocks, TypeChecklist, TypeHeader, TypeImage, TypeList, TypeParagraph, TypeQuote, TypeTable, TypeWarning } from './types';
+import { Blocks, EditorBlock, EditorBlocks, TypeChecklist, TypeHeader, TypeImage, TypeLinkTool, TypeList, TypeParagraph, TypeQuote, TypeTable, TypeWarning } from './types';
 
 const translateBlocks = async (blocks: EditorBlocks, outputLanguage = 'en', inputLanguage = 'es') => {
     const newBlocks: Blocks = {};
@@ -49,7 +49,10 @@ const translateBlocks = async (blocks: EditorBlocks, outputLanguage = 'en', inpu
             ));
             return item;
         },
-
+        'linkTool': async (item: TypeLinkTool) => {
+            item.data.meta.description = await translate(item.data.meta.description,inputLanguage,outputLanguage);
+            return item;
+        },
         'default': (item: any) => {
             return item;
         }
